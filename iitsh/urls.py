@@ -20,7 +20,9 @@ from cloud import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page),
-    path('cabinet/<cabinet>', views.cabinet_page, name='cabinet'),
+    # path('cabinet/<cabinet>', views.cabinet_page, name='cabinet'),
+    path('cabinet/', views.cabinet_page),
+
     # path('brands/<shopnmae>', views.sertCardBrend_page, name='sertCardBrend_page'),
 
 ]

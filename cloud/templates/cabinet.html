@@ -14,6 +14,21 @@
 <body>
     {% include 'menu.html' %}
     <div class="uk-width-3-5 uk-margin-medium-top" style="margin: 0 auto">
+        <div class="uk-child-width-1-2@s" uk-grid>
+
+        {% for cab in data %}
+
+            <div>
+                <div class="uk-dark uk-background-muted uk-padding">
+                    <h3>{{cab.number}}</h3>
+                    <p>Температура: {{cab.temperature}}</p>
+                    <button class="uk-button uk-button-default">Button</button>
+                </div>
+            </div>
+
+        {% endfor %}
+
+    </div>
 
 
 
