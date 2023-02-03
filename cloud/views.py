@@ -8,8 +8,8 @@ def index_page(request):
     return render(request, 'index.html', context)
 
 def cabinet_page(request):
-    context = {}
-    profile = Cabinet.objects.get()
-    context['data'] = Cabinet.objects.all()
+    # context = {}
+    # profile = Cabinet.objects.get()
+    # context['data'] = Cabinet.objects.all()
 
-    return render(request, 'cabinet.html', context)
+    return render(request, 'cabinet.html')

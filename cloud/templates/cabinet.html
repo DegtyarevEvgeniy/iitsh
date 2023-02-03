@@ -13,25 +13,32 @@
 
 <body>
     {% include 'menu.html' %}
-    <div class="uk-width-3-5 uk-margin-medium-top" style="margin: 0 auto">
-        <div class="uk-child-width-1-2@s" uk-grid>
-
-        {% for cab in data %}
-
-            <div>
-                <div class="uk-dark uk-background-muted uk-padding">
-                    <h3>{{cab.number}}</h3>
-                    <p>Температура: {{cab.temperature}}</p>
-                    <button class="uk-button uk-button-default">Button</button>
-                </div>
+    <div class="uk-width-4-5 uk-margin-top" style="margin: 0 auto">
+        <div>
+            <p style="text-align: center; font-size: 2.5em; color: black;">Кабинет Информатики</p>
+        </div>
+        <div uk-grid class="uk-margin-large-bottom">
+            <div class="uk-width-1-2">
+                <p style="font-size: 1.5em; color: black;">Температура</p>
+                <canvas id="TemperatureChart"></canvas>
             </div>
 
-        {% endfor %}
+            <div class="uk-width-1-2">
+                <p style="font-size: 1.5em; color: black;">Влажность</p>
+                <canvas id="HumidityChart"></canvas>
+            </div>
 
-    </div>
+            <div class="uk-width-1-2">
+                <p style="font-size: 1.5em; color: black;">Освещенность</p>
+                <canvas id="LuxChart"></canvas>
+            </div>
 
-
-
+            <div class="uk-width-1-2">
+                <p style="font-size: 1.5em; color: black;">Давление</p>
+                <canvas id="PressureChart"></canvas>
+            </div>
+        </div>
+ 
     </div>
 
 
@@ -42,3 +49,125 @@
 <!-- UIkit JS -->
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit-icons.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    <script>
+    window.onload = function () {
+    // график температуры
+      var dataTemperature = [48, 63, 81, 11, 70, 45, 98, 54]; // данные по которым строится график(!такое же количество как и лейблов!)
+      
+      var labelsTemperature = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00']; // лейблы это те что внизу графика написаны,
+                                                                                                      // !!!! важно чтобы лейблы были "в кавычках" !!!!!!!
+                                                                                                      // если прогон for делать то "{какие то данные}" 
+    // данные обязательно в списке если что
+
+      var configTemperature = {
+        type: 'line',
+        data: {
+          labels: labelsTemperature,
+          datasets: [
+            {
+              label: 'Температура',
+              backgroundColor: 'blue',
+              borderColor: 'grey',
+              data: dataTemperature,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true
+        }
+      };
+    
+      var temperatureChart = document.getElementById('TemperatureChart').getContext('2d');
+      window.myLine = new Chart(temperatureChart, configTemperature);
+
+
+    //   график влажности
+      var dataHumidity = [48, 63, 81, 11, 70, 45, 98, 54];
+      
+      var labelsHumidity = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00'];
+    
+      var configHumidity = {
+        type: 'line',
+        data: {
+          labels: labelsHumidity,
+          datasets: [
+            {
+              label: 'Влажность',
+              backgroundColor: 'green',
+              borderColor: 'grey',
+              data: dataHumidity,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true
+        }
+      };
+    
+      var HumidityChart = document.getElementById('HumidityChart').getContext('2d');
+      window.myLine = new Chart(HumidityChart, configHumidity);
+
+      //   график освещенности
+      var dataLux = [48, 63, 81, 11, 70, 45, 98, 54];
+      
+      var labelsLux = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00'];
+    
+      var configLux = {
+        type: 'line',
+        data: {
+          labels: labelsLux,
+          datasets: [
+            {
+              label: 'Освещенность',
+              backgroundColor: 'orange',
+              borderColor: 'grey',
+              data: dataLux,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true
+        }
+      };
+    
+      var LuxChart = document.getElementById('LuxChart').getContext('2d');
+      window.myLine = new Chart(LuxChart, configLux);
+
+
+    //   график давления
+    var dataPressure = [48, 63, 81, 11, 70, 45, 98, 54];
+      
+      var labelsPressure = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00'];
+    
+      var configPressure = {
+        type: 'line',
+        data: {
+          labels: labelsPressure,
+          datasets: [
+            {
+              label: 'Давление',
+              backgroundColor: 'black',
+              borderColor: 'grey',
+              data: dataPressure,
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive: true
+        }
+      };
+    
+      var PressureChart = document.getElementById('PressureChart').getContext('2d');
+      window.myLine = new Chart(PressureChart, configPressure);
+
+
+    };
+
+   
+    </script>
