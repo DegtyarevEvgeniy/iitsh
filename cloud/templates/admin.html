@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IITSH</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.13.10/dist/css/uikit.min.css" />
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    {% include 'menu.html' %}
+
+
+    <h1>
+        Admin page
+    </h1>
+
+    <a class="uk-button uk-button-default" href="/admin/addcabinet">Добавить кабинет</a>
+
+
+    <h2>
+        Список кабинетов
+    </h2>
+
+    <div class="uk-grid-small uk-child-width-1-4@s uk-flex-center uk-text-center" uk-grid>
+        {% for cabinet in cab %}
+
+        <div>
+            <a href="/cabinet/" class="uk-link-reset">
+                <div class="uk-card uk-card-default uk-card-hover">
+                    <div class="uk-card-header" style="border: none">
+                        <div class="uk-grid-small uk-flex-middle" uk-grid>
+                            <div class="uk-width-expand">
+                                <h3 class="uk-card-title uk-margin-remove-bottom">{{cabinet.cabinet.name}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-card-body">
+                        <h3>Кол-во датчиков | {{cabinet.number}} шт</h3>
+                    </div>
+                    <div class="uk-card-footer uk-text-left">
+                        <p class="uk-text-meta uk-margin-remove">Ответственный: ФИО</p>
+
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        {% endfor %}
+
+       
+    </div>  
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.15.6/dist/js/uikit-icons.min.js"></script>
