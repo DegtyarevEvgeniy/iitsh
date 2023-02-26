@@ -22,8 +22,8 @@ urlpatterns = [
     path('', views.index_page),
     path('admin/', views.admin_page),
 
-    path('cabinet/<cabinet>', views.cabinet_page, name='cabinet'),
-    path('admin/addcabinet', views.addcabinet_page, name='cabinet'),
+    path('cabinet/<num>', views.Cabinet_page, name='Cabinet_page'),
+    path('admin/addcabinet', views.addcabinet_page),
 
     # path('cabinet/', views.cabinet_page),
 

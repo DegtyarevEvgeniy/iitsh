@@ -10,7 +10,7 @@ def index_page(request):
 
     return render(request, 'index.html', context)
 
-def cabinet_page(request, num):
+def Cabinet_page(request, num):
 
     context = {}
     cabinet = Cabinet.objects.get(id=num)
