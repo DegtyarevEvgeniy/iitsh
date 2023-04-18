@@ -35,7 +35,7 @@ def Cabinet_page(request, num):
 def admin_page(request):
     context = {}
 
-    cabinet = Cabinet.objects.all()
+    cabinet = ListCabinet.objects.all()
     context['cab'] = cabinet
 
     return render(request, 'admin.html', context)

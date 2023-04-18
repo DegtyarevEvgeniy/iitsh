@@ -35,7 +35,7 @@
                     <div class="uk-card-header" style="border: none">
                         <div class="uk-grid-small uk-flex-middle" uk-grid>
                             <div class="uk-width-expand">
-                                <h3 class="uk-card-title uk-margin-remove-bottom">{{cabinet.cabinet.name}}</h3>
+                                <h3 class="uk-card-title uk-margin-remove-bottom">{{cabinet.name}}</h3>
                             </div>
                         </div>
                     </div>
@@ -43,8 +43,11 @@
                         <h3>Кол-во датчиков | {{cabinet.number}} шт</h3>
                     </div>
                     <div class="uk-card-footer uk-text-left">
-                        <p class="uk-text-meta uk-margin-remove">Ответственный: ФИО</p>
-
+                        {% if cabinet.danger == 1 %}
+                            <span class="uk-label uk-label-danger">Превышение норм</span>
+                        {% else %}
+                            <span class="uk-label uk-label-success">Норма</span>
+                        {% endif %}
                     </div>
                 </div>
             </a>
