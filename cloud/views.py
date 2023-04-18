@@ -5,7 +5,7 @@ from .models import *
 
 def index_page(request):
     context = {}
-    cabinet = Cabinet.objects.all()
+    cabinet = ListCabinet.objects.all()
     context['cab'] = cabinet
 
     return render(request, 'index.html', context)
@@ -30,13 +30,6 @@ def Cabinet_page(request, num):
     context['pressure'] = pressure
 
 
-    # roducts = Shop.objects.all()
-    # content['products_start'] = [product for product in products[0:6]]
-
-    
-
-    # print(cabinet)
-
     return render(request, 'cabinet.html', context)
 
 def admin_page(request):
@@ -51,7 +44,6 @@ def addcabinet_page(request):
     context = {}
 
     if request.method == "POST":
-
 
         d = True
 
