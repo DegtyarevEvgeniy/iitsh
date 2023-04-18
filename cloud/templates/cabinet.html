@@ -13,6 +13,8 @@
 
 <body>
     {% include 'menu.html' %}
+
+
     <div class="uk-width-4-5 uk-margin-top" style="margin: 0 auto">
         <div>
             <p style="text-align: center; font-size: 2.5em; color: black;">Кабинет Информатики</p>
@@ -42,6 +44,7 @@
     </div>
 
 
+
 </body>
 
 </html>
@@ -54,9 +57,9 @@
     <script>
     window.onload = function () {
     // график температуры
-      var dataTemperature = [48, 63, 81, 11, 70, 45, 98, 54]; // данные по которым строится график(!такое же количество как и лейблов!)
+      var dataTemperature = {{temp}}; // данные по которым строится график(!такое же количество как и лейблов!)
       
-      var labelsTemperature = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00']; // лейблы это те что внизу графика написаны,
+      var labelsTemperature = ['9.00', '10.00', '11.00']; // лейблы это те что внизу графика написаны,
                                                                                                       // !!!! важно чтобы лейблы были "в кавычках" !!!!!!!
                                                                                                       // если прогон for делать то "{какие то данные}" 
     // данные обязательно в списке если что
@@ -85,9 +88,9 @@
 
 
     //   график влажности
-      var dataHumidity = [48, 63, 81, 11, 70, 45, 98, 54];
+      var dataHumidity = {{humidity}};
       
-      var labelsHumidity = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00'];
+      var labelsHumidity = ['9.00', '10.00', '11.00'];
     
       var configHumidity = {
         type: 'line',
@@ -112,9 +115,9 @@
       window.myLine = new Chart(HumidityChart, configHumidity);
 
       //   график освещенности
-      var dataLux = [48, 63, 81, 11, 70, 45, 98, 54];
+      var dataLux = {{lux}};
       
-      var labelsLux = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00'];
+      var labelsLux = ['9.00', '10.00', '11.00'];
     
       var configLux = {
         type: 'line',
@@ -140,9 +143,9 @@
 
 
     //   график давления
-    var dataPressure = [48, 63, 81, 11, 70, 45, 98, 54];
+    var dataPressure = {{pressure}};
       
-      var labelsPressure = ['9.00', '10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00'];
+      var labelsPressure = ['9.00', '10.00', '11.00'];
     
       var configPressure = {
         type: 'line',

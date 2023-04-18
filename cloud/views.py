@@ -13,10 +13,29 @@ def index_page(request):
 def Cabinet_page(request, num):
 
     context = {}
-    cabinet = Cabinet.objects.get(id=num)
+    cabinet = Cabinet.objects.filter(cabinet_id=num)
+
     context['data'] = cabinet
 
-    print(cabinet)
+    temp = [int(item.temperature) for item in cabinet[0:10]]
+    context['temp'] = temp
+
+    humidity = [int(item.humidity) for item in cabinet[0:10]]
+    context['humidity'] = humidity
+
+    lux = [int(item.lux) for item in cabinet[0:10]]
+    context['lux'] = lux
+
+    pressure = [int(item.pressure) for item in cabinet[0:10]]
+    context['pressure'] = pressure
+
+
+    # roducts = Shop.objects.all()
+    # content['products_start'] = [product for product in products[0:6]]
+
+    
+
+    # print(cabinet)
 
     return render(request, 'cabinet.html', context)
 
